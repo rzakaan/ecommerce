@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+
+<head>
+    <title>Dashboard</title>
+    <script>
+        function sayHello() {
+            alert('Hello, there!');
+        }
+    </script>
+</head>
+
+<body>
+    <section layout:fragment="content">
+        <h1>HELLO</h1>
+        <div class="container">
+            <h1 th:text="${message}"></h1>
+            <button type="button" class="btn btn-primary" onclick="sayHello()">Say Hello</button>
+        </div>
+    </section>
+
+    <footer>
+        <p layout:fragment="custom-footer">This is some footer content from content page(dashboard)</p>
+    </footer>
+</body>
+
+</html>

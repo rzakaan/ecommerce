@@ -1,0 +1,18 @@
+services:
+  mysql-service:
+    image: mysql
+    container_name: argus-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: "db"
+      MYSQL_USER: "mysql"
+      MYSQL_PASSWORD: "mysql"
+      MYSQL_ROOT_PASSWORD: "toor"
+    ports:
+      - "3300:3306"
+    expose:
+      - "3306"
+
+# names our volume
+volumes:
+  mysql-server:

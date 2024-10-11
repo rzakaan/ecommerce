@@ -1,0 +1,48 @@
+server:
+  address: 0.0.0.0
+  port: 9000
+
+spring:
+  main:
+    banner-mode: off
+  application:
+    name: ecommerce
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    # postgre db configuration
+    url: jdbc:postgresql://localhost:5432/ecommerce?createDatabaseIfNotExist=true
+    driver-class-name: org.postgresql.Driver
+    username: postgre
+    password: postgre
+
+    # mysql db configuration
+    #url: jdbc:mysql://localhost:3306/ecommerce?createDatabaseIfNotExist=true
+    #driver-class-name: com.mysql.cj.jdbc.Driver
+    #username: sqluser
+    #password: password
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+
+logging:
+  file:
+    name: ecommerce-app.log
+    max-size: 10MB
+    max-history: 10
+  level:
+    root: warn
+    com.argus.ecommerce: debug
+  pattern:
+    # %p level - %t thread - %M function - %F class - %L line
+    file: '%d{"dd-MM-yyy HH:mm:ss"} %-5p - [%t] %M\(%F:%L\) - %msg%n'
+    console: '%d{"dd-MM-yyy HH:mm:ss"} %-5p - [%t] %M\(%F:%L\) - %msg%n'
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "prometheus"

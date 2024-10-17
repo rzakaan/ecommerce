@@ -36,10 +36,19 @@ dependencies {
     //implementation 'org.springframework.boot:spring-boot-starter-security'
     //implementation 'org.springframework.security:spring-security-config'
 
+    // db
 	compileOnly 'org.projectlombok:lombok:1.18.34'
     runtimeOnly 'com.h2database:h2'
     runtimeOnly 'org.postgresql:postgresql'
     //runtimeOnly 'com.mysql:mysql-connector-j'
+
+    // kafka
+    //implementation 'org.apache.kafka:kafka_2.10:0.8.0'
+    implementation 'org.apache.kafka:kafka-clients:3.0.0'
+
+    // utils
+    //implementation 'org.slf4j:slf4j-api:1.7.32'
+    //implementation 'org.slf4j:slf4j-simple:1.7.32'
 	
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

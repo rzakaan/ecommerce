@@ -28,6 +28,9 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
 
+  kafka:
+    bootstrap-servers: localhost:9092
+
 logging:
   file:
     name: log/ecommerce-app.log
@@ -42,7 +45,15 @@ logging:
     console: '%d{"dd-MM-yyy HH:mm:ss"} %-5p - [%t] %M\(%F:%L\) - %msg%n'
 
 management:
+  endpoint:
+    health:
+      show-details: "always"
+      group:
+        custom:
+          show-details: "always"
+          show-components: "always"
+          include: diskSpace, ping
   endpoints:
     web:
       exposure:
-        include: "prometheus"
+        include: health, prometheus, logfile, metrics
